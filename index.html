@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>수행, 숙제 리스트</title>
+    </head>
+    <body>
+        <style>
+            @media(max-width:1000px){
+                .myGrid{
+                display: grid;
+                grid-template:0.5fr 0.5fr 2fr;
+                }
+                .DdayGrid{
+                    display: grid;
+                    grid-template:0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
+                }
+            }          
+            @media(min-width:1000px){
+                .myGrid{
+                display: grid;
+                grid-template-columns:0.5fr 0.5fr 2fr;
+                }
+                .DdayGrid{
+                    display: grid;
+                    grid-template-columns:0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
+                }   
+            }
+            table{ border-collapse : collapse; }  /*이중선 제거*/
+            th,td{
+                width: 100px;
+                height: 50px;
+                text-align: center;
+                border: 1px solid #000;
+                
+                vertical-align: top;   /* 위 */
+                vertical-align: bottom;   /* 아래 */
+                vertical-align: middle;   /* 가운데 */
+                }
+        </style>
+
+        <h2>2-10 1학기 시간표</h2>
+        <table>
+            <tr>
+                <th scope="col"></td>
+                <th scope="col">월</td>
+                <th scope="col">화</td>
+                <th scope="col">수</td>
+                <th scope="col">목</td>
+                <th scope="col">금</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>생1</td>
+                <td>화1</td>
+                <td>수1</td>
+                <td>수1</td>
+                <td>물1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>영어1</td>
+                <td>수2</td>
+                <td>생1</td>
+                <td>문학</td>
+                <td>지1</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>물1</td>
+                <td>문학</td>
+                <td>지1</td>
+                <td>진로</td>
+                <td>영어1</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>수2</td>
+                <td>물1</td>
+                <td>체탐</td>
+                <td>수2</td>
+                <td>화1</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>문학</td>
+                <td>지1</td>
+                <td>영어1</td>
+                <td>물실</td>
+                <td>생1</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>화1</td>
+                <td>영어1</td>
+                <td>문학</td>
+                <td>물실</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>수1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table><br/>
+
+        <div class="myGrid">
+            <div> 
+                <h3>수행평가</h3>
+                <p>
+                수1 1차 논술형 수행(4.1 7교시)<br/>
+                지구1 판의 운동 해석 수행(4.5 2교시)<br/>
+                생명1 탐구 방법 수행(4.5 5교시)<br/>
+                영어1 클래스카드 단어 수행(4.15)<br/>
+                문학 현대소설 분석 수행(상시)<br/>
+                영어1 Reading Log(상시)<br/>
+                물리1 역학적 E 보존 수행(5월 7일)<br/><br/>
+                <a href="https://drive.google.com/drive/folders/1Rdn-cdD9pWBibRAtb-10Fc9Hmd2U6tMY">세부 이미지 링크</a><br/>
+                </p>
+            </div>
+            <div>  
+                <h3>숙제</h3>
+                <p>
+                국어 현대시 김수영 작품 풀어오기<br/>
+                수2 Level3 문제 풀어오기<br/>
+                물리1 운동량 파트 문제 1~3번 풀어오기<br/>
+                </p>
+            </div>
+            <div> 
+                <h3>발표</h3>
+                <p>
+                진로 발표 : 26, 10, 36, 12(4월 11일)<br/>
+                생명 발표 : 4월 1주 1차시 안려환<br/>
+                R&E 발표 : 4월 1일 8교시~야자2<br/>
+                </p>
+            </div>
+        </div>
+        <div class="DdayGrid">
+            <div>
+                <h3>중간까지 D-day</h3>
+                <p id="remain-time_0"></p>
+            </div>
+            <div>
+                <h3>수능까지 D-day</h3>
+                <p id="remain-time_1"></p>
+            </div>
+        </div>
+        <script>
+            const remainTime0 = document.querySelector("#remain-time_0");
+            const remainTime1 = document.querySelector("#remain-time_1");
+            
+            function diffDay(s, Day){
+                const masTime = new Date(Day);
+                const todayTime = new Date();
+                const diff = masTime - todayTime;
+                const diffDay = String(Math.floor(diff / (1000*60*60*24)));
+                const diffHour =String( Math.floor((diff / (1000*60*60)) % 24)).padStart(2,"0");
+                s.innerText = `${diffDay}일 ${diffHour}시간`;
+            }
+
+            diffDay(remainTime0, "2024-4-25");
+            diffDay(remainTime1, "2025-11-13");
+            setInterval(diffDay,1000) 
+        </script>
+        <p>
+            <button>수행평가 일정 짜주는 프로그램(제작 중)</button>
+        </p>
+    </body>
+</html>
