@@ -160,7 +160,7 @@
                 const todayTime = new Date();
                 const diff = masTime - todayTime;
                 const diffDay = String(Math.floor(diff / (1000*60*60*24)));
-                const diffHour =String( Math.floor((diff / (1000*60*60)) % 24)).padStart(2,"0");
+                const diffHour = String( Math.floor((diff / (1000*60*60)) % 24)).padStart(2,"0");
                 s.innerText = `${diffDay}일 ${diffHour}시간`;
             }
 
@@ -168,8 +168,5 @@
             diffDay(remainTime1, "2025-11-13");
             setInterval(diffDay,1000) 
         </script>
-        <p>
-            <button>수행평가 일정 짜주는 프로그램(제작 중)</button>
-        </p>
     </body>
 </html>
