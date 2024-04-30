@@ -5,8 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>수행, 숙제 리스트</title>
+        <style>body{background-image: url("https://ibb.co/HH9qLrY");}</style>
     </head>
     <body>
+        <!--전체 웹 구성틀-->
         <style>
             @media(max-width:1000px){
                 .myGrid{
@@ -15,7 +17,7 @@
                 }
                 .DdayGrid{
                     display: grid;
-                    grid-template:0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
+                    grid-template:1fr 1fr;
                 }
             }          
             @media(min-width:1000px){
@@ -25,7 +27,7 @@
                 }
                 .DdayGrid{
                     display: grid;
-                    grid-template-columns:0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
+                    grid-template-columns:1fr 1fr;
                 }   
             }
             table{ border-collapse : collapse; }  /*이중선 제거*/
@@ -40,9 +42,82 @@
                 vertical-align: middle;   /* 가운데 */
                 }
         </style>
-        <p>(글자가 깨져보인다면 창 크기를 세로로 길게 해보세여)</p>
+        <!--구성요소 디자인-->
+        <style type="text/css">
+            button {
+                border:none;
+                background-color:white;
+                padding:10px;
+                }
+                /* 전체영역에서 여백을 없애줌 */
+                    * {
+                        margin: 0;
+                        padding: 0;
+                    }
+                /* ul li태그에 리스트 스타일을 없앰 */
+                    ul li{
+                        list-style: none;
+                    }
+                /* 글자크기 : 16px 굵은 맑은 고딕, 글자색은 검정색, 라인높이50px
+                menu박스 가운데정렬, 글자가운데 정렬 */
+                    #menu {
+                        font:bold 16px "malgun gothic";
+                        color:black;
+                        line-height: 50px; 
+                        margin:0 auto;
+                        text-align: center;
+                    }
+        
+        /* menu태그 자식의 ul의 자식 li를 왼쪽정렬과 넓이 140설정 */
+            #menu > ul > li {
+                    float:left;
+                    width:140px;
+                    position:relative;
+                }
+            #menu > ul > li > ul {
+                    width:130px;
+                    display:none;
+                    position: absolute;
+                    font-size:14px;
+                    background: white;
+            }
+            #menu > ul > li:hover > ul {
+                display:block;
+            }
+            #menu > ul > li > ul > li:hover {
+                background: rgb(50, 48, 48);
+                transition: ease 1s;
+                }
+            .menu_icon { display: inline-block; position: relative; width: 50px; height: 40px; } 
+            .menu_icon span { position: absolute; left: 50%; width: 100%; height: 7px; background: #333; border-radius: 4px; transform:translate(-50%,0) rotate(0deg); transition: 0.2s ease-in-out; } 
+            .menu_icon span:nth-child(1) { top: 0px; } 
+            .menu_icon span:nth-child(2), 
+            .menu_icon span:nth-child(3) { top: 50%; transform: translate(-50%,-50%); } 
+            .menu_icon span:nth-child(4) { bottom: 0; } 
+            .menu_icon.active span:nth-child(1) { top: 50%; width: 0; transform: translate(-50%,-50%); }
+            .menu_icon.active span:nth-child(2) { transform:translate(-50%, -50%) rotate(45deg); } 
+            .menu_icon.active span:nth-child(3) { transform:translate(-50%, -50%) rotate(-45deg); } 
+            .menu_icon.active span:nth-child(4) { bottom: 50%; width: 0; transform: translate(-50%,50%); }
+        </style>
+    <div id="menu">
+        <ul>
+            <li><a class="menu_icon" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                </a>
+                <ul>
+                    <li><button id="buttonA" onclick="showContent('A')">수행평가</button></li>
+                    <li><button id="buttonB" onclick="showContent('B')">숙제 및 발표</button></li>
+                    <li><button id="buttonA" onclick="showContent('C')">시험 시간표, 범위</button></li>
+                    <li><button id="buttonA" onclick="showContent('D')">D-day</button></li>
+                    <li><button id="buttonA" onclick="showContent('E')">수업 시간표</button></li>
+                </ul>
+            </li>
+        </ul>
         <div class="myGrid">
-            <div> 
+            <div id="contentA"> 
                 <h3>수행평가</h3>
                 <p>
                 문학 현대소설 분석 수행(상시)<br/>
@@ -52,12 +127,12 @@
                 <a href="https://drive.google.com/drive/folders/1Rdn-cdD9pWBibRAtb-10Fc9Hmd2U6tMY">수행평가 세부 이미지 링크</a>
                 </p>
             </div>
-            <div>  
+            <div id="contentB">  
                 <h3>숙제</h3>
                 <p>
+                없습니다. 노세요.
                 </p>
-            </div>
-            <div> 
+            </br>
                 <h3>발표</h3>
                 <p>
                 진로 발표 : 5, 13, 35번(5월 2일)<br/>
@@ -65,29 +140,17 @@
                 </p>
             </div>
         </div>
-        <div>
+        <div id="contentC">
             <h2>시험범위</h2>
+            <p>중간 끝</p>
         </div>
-        <div class="DdayGrid">
+        <div class="DdayGrid", id="contentD">
             <div>
                 <h3>수능까지 D-day</h3>
                 <p id="remain-time_0"></p>
             </div>
         </div>
-        <script>
-            const remainTime0 = document.querySelector("#remain-time_0");
-            
-            function diffDay(s, Day){
-                const masTime = new Date(Day);
-                const todayTime = new Date();
-                const diff = masTime - todayTime;
-                const diffDay = String(Math.floor(diff / (1000*60*60*24)));
-                const diffHour = String( Math.floor((diff / (1000*60*60)) % 24)).padStart(2,"0");
-                s.innerText = `${diffDay}일 ${diffHour}시간`;
-            }
-            diffDay(remainTime0, "2025-11-13");
-            setInterval(diffDay,1000) 
-        </script>
+        <div id="contentE">
         <h2>2-10 1학기 시간표</h2>
         <table>
             <tr>
@@ -155,5 +218,52 @@
                 <td></td>
             </tr>
         </table>
+    </div>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+        showContent('A');
+        });
+    
+        function showContent(content) {
+        var contentA = document.getElementById("contentA");
+        var contentB = document.getElementById("contentB");
+        var contentC = document.getElementById("contentC");
+        var contentD = document.getElementById("contentD");
+        var contentE = document.getElementById("contentE");
+    
+        // 내용 숨김
+        contentA.style.display = "none";
+        contentB.style.display = "none";
+        contentC.style.display = "none";
+        contentD.style.display = "none";
+        contentE.style.display = "none";
+    
+        // 선택한 내용 보이기
+        if (content === "A") {
+            contentA.style.display = "block";
+        } else if (content === "B") {
+            contentB.style.display = "block";
+        } else if (content === "C") {
+            contentC.style.display = "block";
+        } else if (content === "D") {
+            contentD.style.display = "block";
+        } else if (content === "E") {
+            contentE.style.display = "block";
+        }
+        }
+        const remainTime0 = document.querySelector("#remain-time_0");
+        
+        function diffDay(s, Day){
+            const masTime = new Date(Day);
+            const todayTime = new Date();
+            const diff = masTime - todayTime;
+            const diffDay = String(Math.floor(diff / (1000*60*60*24)));
+            const diffHour = String( Math.floor((diff / (1000*60*60)) % 24)).padStart(2,"0");
+            s.innerText = `${diffDay}일 ${diffHour}시간`;
+        }
+        diffDay(remainTime0, "2025-11-13");
+        setInterval(diffDay,1000)
+    </script>
     </body>
 </html>
