@@ -71,12 +71,11 @@
         <div class="DdayGrid">
             <div>
                 <h3>수능까지 D-day</h3>
-                <p id="remain-time_1"></p>
+                <p id="remain-time_0"></p>
             </div>
         </div>
         <script>
             const remainTime0 = document.querySelector("#remain-time_0");
-            const remainTime1 = document.querySelector("#remain-time_1");
             
             function diffDay(s, Day){
                 const masTime = new Date(Day);
@@ -86,9 +85,7 @@
                 const diffHour = String( Math.floor((diff / (1000*60*60)) % 24)).padStart(2,"0");
                 s.innerText = `${diffDay}일 ${diffHour}시간`;
             }
-
-            diffDay(remainTime0, "2024-4-25");
-            diffDay(remainTime1, "2025-11-13");
+            diffDay(remainTime0, "2025-11-13");
             setInterval(diffDay,1000) 
         </script>
         <h2>2-10 1학기 시간표</h2>
