@@ -5,31 +5,34 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>수행, 숙제 리스트</title>
-        <style>body{background-image: url("https://ibb.co/HH9qLrY");}</style>
+        <style>
+        </style>
     </head>
     <body>
         <!--전체 웹 구성틀-->
         <style>
-            @media(max-width:1000px){
-                .myGrid{
-                display: grid;
-                grid-template:0.5fr 0.5fr 1fr;
-                }
-                .DdayGrid{
-                    display: grid;
-                    grid-template:1fr 1fr;
-                }
-            }          
-            @media(min-width:1000px){
-                .myGrid{
-                display: grid;
-                grid-template-columns:0.5fr 0.5fr 1fr;
-                }
-                .DdayGrid{
-                    display: grid;
-                    grid-template-columns:1fr 1fr;
-                }   
+        @media(max-width:1140px){
+            body{background-image: linear-gradient(rgba(243, 240, 240, 0.5), rgba(248, 245, 245, 0.5)), url('https://i.ibb.co/k37T4HY/image.jpg'); background-repeat: no-repeat; background-size: cover}
+            .myGrid{
+            display: grid;
+            grid-template:0.5fr 0.5fr 1fr;
             }
+            .DdayGrid{
+                display: grid;
+                grid-template:0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+            }
+        }
+        @media(min-width:1140px){
+            body{background-image: linear-gradient(rgba(243, 240, 240, 0.5), rgba(248, 245, 245, 0.5)), url('https://i.ibb.co/k37T4HY/image.jpg'); background-repeat: no-repeat; background-size: cover}    
+            .myGrid{
+            display: grid;
+            grid-template-columns:0.5fr 0.5fr 1fr;
+            }
+            .DdayGrid{
+                display: grid;
+                grid-template-columns:0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+            }   
+        }
             table{ border-collapse : collapse; }  /*이중선 제거*/
             th,td{
                 width: 100px;
@@ -73,20 +76,23 @@
                     float:left;
                     width:140px;
                     position:relative;
+                    overflow: hidden;
                 }
             #menu > ul > li > ul {
                     width:130px;
-                    display:none;
-                    position: absolute;
+                    overflow : hidden;
                     font-size:14px;
                     background: white;
+                    height:0;
             }
             #menu > ul > li:hover > ul {
                 display:block;
+                height: 250px;
+                transition-duration: 0.6s;
             }
             #menu > ul > li > ul > li:hover {
-                background: rgb(50, 48, 48);
-                transition: ease 1s;
+                background: rgb(255, 230, 0);
+                transition: ease 0.6s;
                 }
             .menu_icon { display: inline-block; position: relative; width: 50px; height: 40px; } 
             .menu_icon span { position: absolute; left: 50%; width: 100%; height: 7px; background: #333; border-radius: 4px; transform:translate(-50%,0) rotate(0deg); transition: 0.2s ease-in-out; } 
@@ -108,17 +114,17 @@
                 <span></span>
                 </a>
                 <ul>
-                    <li><button id="buttonA" onclick="showContent('A')">수행평가</button></li>
-                    <li><button id="buttonB" onclick="showContent('B')">숙제 및 발표</button></li>
-                    <li><button id="buttonA" onclick="showContent('C')">시험 시간표, 범위</button></li>
-                    <li><button id="buttonA" onclick="showContent('D')">D-day</button></li>
-                    <li><button id="buttonA" onclick="showContent('E')">수업 시간표</button></li>
+                    <li><button id="button" onclick="showContent('A')">수행평가</button></li>
+                    <li><button id="button" onclick="showContent('B')">숙제 및 발표</button></li>
+                    <li><button id="button" onclick="showContent('C')">시험 범위</button></li>
+                    <li><button id="button" onclick="showContent('D')">D-day</button></li>
+                    <li><button id="button" onclick="showContent('E')">수업 시간표</button></li>
                 </ul>
             </li>
         </ul>
         <div class="myGrid">
             <div id="contentA"> 
-                <h3>수행평가</h3>
+                <h1 style = "background-color : rgb(255, 230, 0)">< 수행평가 ></h1>
                 <p>
                 문학 현대소설 분석 수행(상시)<br/>
                 영어1 Reading Log(상시)<br/>
@@ -126,99 +132,166 @@
                 화학1 양적관계 수행(5월 7일)</br></br>
                 <a href="https://drive.google.com/drive/folders/1Rdn-cdD9pWBibRAtb-10Fc9Hmd2U6tMY">수행평가 세부 이미지 링크</a>
                 </p>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
             </div>
             <div id="contentB">  
-                <h3>숙제</h3>
+                <h1 style = "background-color : rgb(255, 230, 0)">< 숙제 ></h1>
                 <p>
                 없습니다. 노세요.
                 </p>
             </br>
-                <h3>발표</h3>
+                <h1 style = "background-color : rgb(255, 230, 0)">< 발표 ></h1>
                 <p>
                 진로 발표 : 5, 13, 35번(5월 2일)<br/>
                 생명 발표 : 5월 3주 1차시 오연우
                 </p>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
             </div>
         </div>
-        <div id="contentC">
-            <h2>시험범위</h2>
-            <p>중간 끝</p>
-        </div>
-        <div class="DdayGrid", id="contentD">
-            <div>
-                <h3>수능까지 D-day</h3>
-                <p id="remain-time_0"></p>
+        <div class="myGrid">
+            <div id="contentC" style="text-align:center">
+                <h1 style = "background-color : rgb(255, 230, 0);">< 시험범위 ></h1>
+                <p>중간 끝 노세요.</p>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
             </div>
+            <div id="contentD" style="text-align:center">
+                <h1 style = "background-color : rgb(255, 230, 0);">< D-day ></h1>
+                <table height = "40%", width = "100%">
+                    <tr>
+                        <td>체육대회</td>
+                        <td><p id="remain-time_0"></p></td>
+                    </tr>
+                    <tr>
+                        <td>6모</td>
+                        <td><p id="remain-time_1"></p></td>
+                    </tr>
+                    <tr>
+                        <td>기말</td>
+                        <td><p id="remain-time_2"></p></td>
+                    </tr>
+                    <tr>
+                        <td>9모</td>
+                        <td><p id="remain-time_3"></p></td>
+                    </tr>
+                    <tr>
+                        <td>11모</td>
+                        <td><p id="remain-time_4"></p></td>
+                    </tr>
+                    <tr>
+                        <td>수능</td>
+                        <td><p id="remain-time_5"></p></td>
+                    </tr>
+                </table>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+            </div>
+            <div id="contentE">
+                <h1 style = "background-color : rgb(255, 230, 0); text-align: center;">< 2-10 시간표 ></h1>
+                <table height = "50%", width = "100%">
+                <tr>
+                    <th scope="col"></td>
+                    <th scope="col">월</td>
+                    <th scope="col">화</td>
+                    <th scope="col">수</td>
+                    <th scope="col">목</td>
+                    <th scope="col">금</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>생1</td>
+                    <td>화1</td>
+                    <td>수1</td>
+                    <td>수1</td>
+                    <td>물1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>영어1</td>
+                    <td>수2</td>
+                    <td>생1</td>
+                    <td>문학</td>
+                    <td>지1</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>물1</td>
+                    <td>문학</td>
+                    <td>지1</td>
+                    <td>진로</td>
+                    <td>영어1</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>문학</td>
+                    <td>물1</td>
+                    <td>체탐</td>
+                    <td>수2</td>
+                    <td>화1</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>수2</td>
+                    <td>지구1</td>
+                    <td>영어1</td>
+                    <td>물실</td>
+                    <td>생1</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>화1</td>
+                    <td>영어1</td>
+                    <td>문학</td>
+                    <td>물실</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>수1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
         </div>
-        <div id="contentE">
-        <h2>2-10 1학기 시간표</h2>
-        <table>
-            <tr>
-                <th scope="col"></td>
-                <th scope="col">월</td>
-                <th scope="col">화</td>
-                <th scope="col">수</td>
-                <th scope="col">목</td>
-                <th scope="col">금</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>생1</td>
-                <td>화1</td>
-                <td>수1</td>
-                <td>수1</td>
-                <td>물1</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>영어1</td>
-                <td>수2</td>
-                <td>생1</td>
-                <td>문학</td>
-                <td>지1</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>물1</td>
-                <td>문학</td>
-                <td>지1</td>
-                <td>진로</td>
-                <td>영어1</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>문학</td>
-                <td>물1</td>
-                <td>체탐</td>
-                <td>수2</td>
-                <td>화1</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>수2</td>
-                <td>지구1</td>
-                <td>영어1</td>
-                <td>물실</td>
-                <td>생1</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>화1</td>
-                <td>영어1</td>
-                <td>문학</td>
-                <td>물실</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>수1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
     </div>
+    <p style="font-size: 12px;">made by kys</p>
+    <p style="font-size: 12px;">background by Ryhw, Heisenberg</p>
     </div>
     <script>
         window.addEventListener('DOMContentLoaded', function() {
@@ -253,6 +326,11 @@
         }
         }
         const remainTime0 = document.querySelector("#remain-time_0");
+        const remainTime1 = document.querySelector("#remain-time_1");
+        const remainTime2 = document.querySelector("#remain-time_2");
+        const remainTime3 = document.querySelector("#remain-time_3");
+        const remainTime4 = document.querySelector("#remain-time_4");
+        const remainTime5 = document.querySelector("#remain-time_5");
         
         function diffDay(s, Day){
             const masTime = new Date(Day);
@@ -262,7 +340,12 @@
             const diffHour = String( Math.floor((diff / (1000*60*60)) % 24)).padStart(2,"0");
             s.innerText = `${diffDay}일 ${diffHour}시간`;
         }
-        diffDay(remainTime0, "2025-11-13");
+        diffDay(remainTime0, "2024-5-10");
+        diffDay(remainTime1, "2024-6-4");
+        diffDay(remainTime2, "2024-7-4");
+        diffDay(remainTime3, "2024-9-4");
+        diffDay(remainTime4, "2024-10-15");
+        diffDay(remainTime5, "2025-11-13");
         setInterval(diffDay,1000)
     </script>
     </body>
