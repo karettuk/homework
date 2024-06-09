@@ -124,7 +124,7 @@
             <div id="contentA"> 
                 <h1 style = "background-color : rgb(255, 230, 0)">< 수행평가 ></h1>
                 <p>
-                영어 진로 글쓰기(5월 29일~)<br/>
+                영어 봉사 글쓰기(6월 10일)<br/>
                 화학 수소스펙트럼 수행(6월 10일)<br/>
                 지구 줄무늬 화석 수행(6월 11일)<br/> 
                 영어 단어 수행(6월 16일)<br/>
@@ -141,7 +141,6 @@
             </div>
             <div id="contentB">  
                 <h1 style = "background-color : rgb(255, 230, 0)">< 숙제 ></h1>
-                <a href="https://forms.gle/PThwq1YtM7P4geFWA">심화탐구 소감문 2개(6월 5일)</a><br/>
                 <p>창의재단 문서 제출(6월 12일)</p>
                 <p>물리 보고서(6월 21일, 미제출 -> -1점)</p>
             </br>
@@ -159,12 +158,12 @@
         <div class="myGrid">
             <div id="contentC" style="text-align:center">
                 <h1 style = "background-color : rgb(255, 230, 0);">< 시험범위 ></h1>
-                <h3>6모 시작 슬슬 공부합시당</h3>
-                <p>수1 : ~삼각함수</p>
-                <p>물1 : ~에너지와 열</p>
-                <p>화1 : ~원자모형, 전자배치</p>
-                <p>생1 : ~항상성 유지</p>
-                <p>지1 : ~기압과 날씨변화</p>
+                <h3>기말 시작 슬슬 공부합시당</h3>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
                 </br>
                 </br>
                 </br>
@@ -174,10 +173,6 @@
             <div id="contentD" style="text-align:center">
                 <h1 style = "background-color : rgb(255, 230, 0);">< D-day ></h1>
                 <table height = "40%", width = "100%">
-                    <tr>
-                        <td>6모</td>
-                        <td><p id="remain-time_1"></p></td>
-                    </tr>
                     <tr>
                         <td>기말</td>
                         <td><p id="remain-time_2"></p></td>
@@ -312,7 +307,6 @@
             contentE.style.display = "block";
         }
         }
-        const remainTime1 = document.querySelector("#remain-time_1");
         const remainTime2 = document.querySelector("#remain-time_2");
         const remainTime3 = document.querySelector("#remain-time_3");
         const remainTime4 = document.querySelector("#remain-time_4");
@@ -326,7 +320,6 @@
             const diffHour = String( Math.floor((diff / (1000*60*60)) % 24)).padStart(2,"0");
             s.innerText = `${diffDay}일 ${diffHour}시간`;
         }
-        diffDay(remainTime1, "2024-6-4");
         diffDay(remainTime2, "2024-7-4");
         diffDay(remainTime3, "2024-9-4");
         diffDay(remainTime4, "2024-10-15");
