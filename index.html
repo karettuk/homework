@@ -124,6 +124,7 @@
             <div id="contentA"> 
                 <h1 style = "background-color : rgb(255, 230, 0)">< 수행평가 ></h1>
                 <p>
+                영어 TED-ed 글쓰기 수행(8/26)<br/>
                 <a href="https://drive.google.com/drive/folders/1Rdn-cdD9pWBibRAtb-10Fc9Hmd2U6tMY">수행평가 세부 이미지 링크</a>
                 </p>
             </br>
@@ -139,7 +140,8 @@
             </div>
             <div id="contentB">  
                 <h1 style = "background-color : rgb(255, 230, 0)">< 숙제 ></h>
-                <p>    
+                <p>
+                    <br/>
                 </p>
             </br>
                 <h1 style = "background-color : rgb(255, 230, 0)">< 발표 ></h1>
@@ -193,6 +195,10 @@
                     <tr>
                         <td>기말</td>
                         <td><p id="remain-time_2"></p></td>
+                    </tr>
+                    <tr>
+                        <td>R&E 최종발표</td>
+                        <td><p id="remain-time_0"></p></td>
                     </tr>
                     <tr>
                         <td>수능</td>
@@ -314,6 +320,7 @@
             contentE.style.display = "block";
         }
         }
+        const remainTime0 = document.querySelector("#remain-time_0");
         const remainTime1 = document.querySelector("#remain-time_1");
         const remainTime2 = document.querySelector("#remain-time_2");
         const remainTime3 = document.querySelector("#remain-time_3");
@@ -329,6 +336,7 @@
             const diffHour = String( Math.floor((diff / (1000*60*60)) % 24)).padStart(2,"0");
             s.innerText = `${diffDay}일 ${diffHour}시간`;
         }
+        diffDay(remainTime0, "2024-12-21");
         diffDay(remainTime1, "2024-10-17");
         diffDay(remainTime2, "2024-12-19");
         diffDay(remainTime3, "2024-9-4");
